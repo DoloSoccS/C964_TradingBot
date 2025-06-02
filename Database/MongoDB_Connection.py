@@ -14,8 +14,9 @@ def start_db():
         collection = db["Finance_Data"]
 
         if collection.find_one({"symbol": "TESTSYMBOL"}):
-            print("Entry exists")
+            print("Test entry exists")
         else:
+            print("Adding new test entry to database.")
             collection.insert_one(
                 {"symbol": "TESTSYMBOL", "current": 211.58, "previous_close": 211.45, "market_cap": 3160000000000,
                  "volume": 32276821, "RSI": 61.30, "MACD": 18.35, "EMA": 336.02, "SMA": 211.75,
