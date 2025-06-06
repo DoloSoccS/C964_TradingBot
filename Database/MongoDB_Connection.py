@@ -5,7 +5,9 @@ from pymongo import MongoClient
 
 
 def start_db():
+
     try:
+
         conn_string = "mongodb://localhost:27017/"
         client = MongoClient(conn_string)
         print(client.list_database_names())
@@ -31,3 +33,10 @@ def start_db():
         print(f"Unexpected error: {e}")
         traceback.print_exc()
         return None
+
+
+def close_db():
+    conn_string = "mongodb://localhost:27017/"
+    client = MongoClient(conn_string)
+    client.close()
+    print("Database connection closed.")
