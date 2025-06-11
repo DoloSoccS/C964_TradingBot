@@ -7,8 +7,9 @@ from Database.MongoDB_Connection import start_db
 
 app = Flask(__name__)
 
-
+start_db()
 @app.route("/", methods=["GET", "POST"])
+@app.route("/login", methods=["GET", "POST"])
 def loginPage():
     if request.method == "POST":
         get_passphrase = request.form.get("passphrase")
@@ -17,16 +18,9 @@ def loginPage():
         else:
             return "Invalid Passphrase", 403
 
-    return '''
-            <form method="POST">
-                <label for="passphrase">Enter Passphrase:</label>
-                <input type="password" name="passphrase" required>
-                <button type="submit">Submit</button>
-            </form>
-        '''
+    return render_template("login.html")
 
-
-@app.route("/landingPage", methods=["GET", "POST"])
+@app.route("/landing", methods=["GET", "POST"])
 def landingPage():
     return "This is the landing page"
 
