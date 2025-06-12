@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>C964 Computer Science Capstone</title>
+    <title>Main Page</title>
 </head>
 <body>
+
+    <h2>C964 Computer Science Capstone</h2>
+
+    <form method="POST">
+        <label for="ticker">Choose ticker symbol to get prediction : </label>
+        <select name="tickersList" class="Input" required>
+            {% for t in tickersList %}
+                <option value="{{ t }}">{{ t }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if chart %}
+        <h2>Trend Chart for {{ ticker_selection }}</h2>
+        <img src="{{ url_for('static', filename='trend_plot.png') }}" alt="Trend Chart">
+    {% endif %}
+
+    {% if prediction %}
+        <h2>Model Prediction: {{ prediction }}</h2>
+    {% endif %}
 
 </body>
 </html>
