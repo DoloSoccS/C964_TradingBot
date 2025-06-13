@@ -10,22 +10,23 @@
 
     <form method="POST">
         <label for="ticker">Choose ticker symbol to get prediction : </label>
-        <select name="tickersList" class="Input" required>
+        <select name="tickerFromList" class="Input" required>
             {% for t in tickersList %}
-                <option value="{{ t }}">{{ t }}</option>
+                <option value="{{ t }}" {% if t == ticker_selection %}selected{% endif %}>{{ t }}</option>
             {% endfor %}
         </select>
         <button type="submit">Submit</button>
     </form>
 
-    {% if chart %}
-        <h2>Trend Chart for {{ ticker_selection }}</h2>
-        <img src="{{ url_for('static', filename='trend_plot.png') }}" alt="Trend Chart">
+    {% if data %}
+        <img src="data:image/png;base64, {{data}}" alt="Trend Chart">
     {% endif %}
 
     {% if prediction %}
-        <h2>Model Prediction: {{ prediction }}</h2>
+        <h1>Prediction: {{ prediction }}</h1>
     {% endif %}
+
+    <label><h2>Score: {{ predScore }}</h2></label>
 
 </body>
 </html>
