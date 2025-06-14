@@ -18,8 +18,12 @@
         <button type="submit">Submit</button>
     </form>
 
-    {% if data %}
-        <img src="data:image/png;base64, {{data}}" alt="Trend Chart">
+    {% if data1 %}
+        <img src="data:image/png;base64, {{data1}}" alt="Trend Line Chart">
+    {% endif %}
+
+    {% if data2 %}
+        <img src="data:image/png;base64, {{data2}}" alt="Candlestick Chart">
     {% endif %}
 
     {% if prediction %}
