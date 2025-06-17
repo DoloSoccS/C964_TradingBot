@@ -181,5 +181,9 @@ def landingPage():
 
 start_db()
 
+print(yf.download("AAPL"))
+
+print(yf.Ticker("AAPL"))
+
 if __name__ == '__main__':
     app.run(debug=True)
