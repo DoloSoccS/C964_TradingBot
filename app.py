@@ -25,7 +25,7 @@ app.secret_key = "secret key"
 
 # URLs for accessing the login page. Conceptual representation on how to get multiple URLs to access the same page.
 @app.route("/", methods=["GET", "POST"])
-@app.route("/login", methods=["GET", "POST"])
+# @app.route("/login", methods=["GET", "POST"])
 def loginPage():
     if request.method == "POST":
         get_passphrase = request.form.get(
@@ -171,9 +171,9 @@ def landingPage():
 
         predScore = evaluate[0][1]  # Returns the array value for "positive" prediction or '1.' This value is displayed under each prediction for added context.
         if evaluate[0][1] > 0.75:
-            prediction = "BUY"
+            prediction = "Go"
         else:
-            prediction = "SELL"
+            prediction = "No Go"
 
     return render_template("landing.html", tickersList=tickersList, ticker_selection=ticker_selection, data1=data1,
                            data2=data2, prediction=prediction, predScore=predScore)

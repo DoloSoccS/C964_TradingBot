@@ -3,8 +3,6 @@ Capstone Project for Computer Science B.S.
 
 The purpose of this project is to predict whether a particular stock should be bought or sold. The model used is XGBoost. The database used to hold the model data is MongoDB. Git for version control and Docker for portability and efficiency. The front end was built using the Flask framework.
 
-
-
 IMPORTANT:
 In order to run the TA-lib module, Microsoft Visual C++ dependencies will need to be installed.
 https://visualstudio.microsoft.com/visual-cpp-build-tools/

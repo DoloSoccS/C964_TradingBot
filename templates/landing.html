@@ -26,9 +26,15 @@
         <img src="data:image/png;base64, {{data2}}" alt="Candlestick Chart">
     {% endif %}
 
-    {% if prediction %}
-        <h1>Prediction: {{ prediction }}</h1>
+{% if prediction %}
+    {% if prediction == 'Go' %}
+        <h1 style="color: green;">{{ prediction }}</h1>
+    {% else %}
+        <h1 style="color: red;">{{ prediction }}</h1>
     {% endif %}
+{% endif %}
+
+
 
     <label><h2>Score: {{ predScore }}</h2></label>
 

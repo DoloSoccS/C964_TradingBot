@@ -2,9 +2,9 @@ import traceback
 from pymongo import errors
 from pymongo import MongoClient
 
+
 # Establish connection to the database
 def start_db():
-
     try:
         conn_string = "mongodb://localhost:27017/"
         client = MongoClient(conn_string)  # Create MongoDB connection
@@ -29,6 +29,7 @@ def start_db():
         print(f"Unexpected error: {e}")
         traceback.print_exc()
         return None
+
 
 # Would be used to disconnect from the database once the training is complete.
 def close_db():
